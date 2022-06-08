@@ -31,20 +31,20 @@ Route::middleware('auth:api')->group(function(){
     Route::post('/walls/{id}/like', [WalletController::class, 'like']);
 
     // Documentos
-    Route::get('/docs', [DocController::class, 'getAll'])->name('docs.getAll');
+    Route::get('/docs', [DocController::class, 'getAll']);
 
     // Livro de ocorrencias
-    Route::get('/warnings', [WarningController::class, 'getMyWarnings'])->name('warnings.getMyWarnings');
-    Route::post('/warning', [WarningController::class, 'setWarning'])->name('warning.setWarning');
-    Route::post('warning/file', [WarningController::class, 'addWarningFile'])->name('warning.addWarningFile');
+    Route::get('/warnings', [WarningController::class, 'getMyWarnings']);
+    Route::post('/warning', [WarningController::class, 'setWarning']);
+    Route::post('warning/file', [WarningController::class, 'addWarningFile']);
 
     // Boletos
-    Route::get('/billets', [BilletController::class, 'getAll'])->name('billets.getAll');
+    Route::get('/billets', [BilletController::class, 'getAll']);
 
     // Achados e perdido
-    Route::get('/foundandlost', [FoundAndLostController::class, 'getAll'])->name('foundandlost.getAll');
-    Route::post('/foundandlost', [FoundAndLostController::class, 'insert'])->name('foundandlost.insert');
-    Route::put('/foundandlost/{id}', [FoundAndLostController::class, 'update'])->name('foundandlost.update');
+    Route::get('/foundandlost', [FoundAndLostController::class, 'getAll']);
+    Route::post('/foundandlost', [FoundAndLostController::class, 'insert']);
+    Route::put('/foundandlost/{id}', [FoundAndLostController::class, 'update']);
 
     // Unidade
     Route::get('/unit/{id}', [UnitController::class, 'getInfo'])->name('unit.getInfo');
