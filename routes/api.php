@@ -17,18 +17,18 @@ Route::get('/ping', function () {
     return ['pong'=>true];
 });
 
-Route::get('/401', [AuthController::class, 'unautorized'])->name('401');
+Route::get('/401', [AuthController::class, 'unautorized'])->name('login');
 
-Route::post('/auth/login', [AuthController::class, 'login'])->name('auth.login');
-Route::post('/auth/register', [AuthController::class, 'register'])->name('auth.register');
+Route::post('/auth/login', [AuthController::class, 'login']);
+Route::post('/auth/register', [AuthController::class, 'register']);
 
 Route::middleware('auth:api')->group(function(){
-    Route::post('/auth/validade', [AuthController::class, 'validate'])->name('auth.validate');
-    Route::post('auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
+    Route::post('/auth/validate', [AuthController::class, 'validateToken']);
+    Route::post('/auth/logout', [AuthController::class, 'logout']);
 
     // Mudal de avisos
-    Route::get('/walls', [WalletController::class, 'getAll'])->name('walls.getAll');
-    Route::post('/walls/{id}/like', [WalletController::class, 'like'])->name('walls.like');
+    Route::get('/walls', [WalletController::class, 'getAll']);
+    Route::post('/walls/{id}/like', [WalletController::class, 'like']);
 
     // Documentos
     Route::get('/docs', [DocController::class, 'getAll'])->name('docs.getAll');
