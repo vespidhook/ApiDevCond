@@ -13,6 +13,6 @@ class UnitVehicle extends Model
         'unit_id',
     ];
 
-    public $timestamp = false;
+    public $timestamps = false;
     public $table = 'unitvehicles';
 }

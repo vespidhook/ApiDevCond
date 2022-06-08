@@ -13,7 +13,7 @@ class User extends Authenticatable implements JWTSubject
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    public $timestamp = false;
+    public $timestamps = false;
 
     protected $hidden = [
         'password',

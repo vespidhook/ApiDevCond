@@ -22,7 +22,7 @@ Route::get('/401', [AuthController::class, 'unautorized'])->name('401');
 Route::post('/auth/login', [AuthController::class, 'login'])->name('auth.login');
 Route::post('/auth/register', [AuthController::class, 'register'])->name('auth.register');
 
-Route::middlewre('auth:api')->group(function(){
+Route::middleware('auth:api')->group(function(){
     Route::post('/auth/validade', [AuthController::class, 'validate'])->name('auth.validate');
     Route::post('auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
