@@ -10,7 +10,7 @@ use App\Http\Controllers\FoundAndLostController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\WalletController;
+use App\Http\Controllers\WallController;
 use App\Http\Controllers\WarningController;
 
 Route::get('/ping', function () {
@@ -27,8 +27,8 @@ Route::middleware('auth:api')->group(function(){
     Route::post('/auth/logout', [AuthController::class, 'logout']);
 
     // Mudal de avisos
-    Route::get('/walls', [WalletController::class, 'getAll']);
-    Route::post('/walls/{id}/like', [WalletController::class, 'like']);
+    Route::get('/walls', [WallController::class, 'getAll']);
+    Route::post('/wall/{id}/like', [WallController::class, 'like']);
 
     // Documentos
     Route::get('/docs', [DocController::class, 'getAll']);

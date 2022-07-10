@@ -51,8 +51,7 @@ class AuthController extends Controller
 
             if(!$token) {
                 $array['error'] = 'Ocorreu um erro.';
-            } else {
-                $array['token'] = $token;
+                return $array;
             }
 
             $array['token'] = $token;
@@ -90,8 +89,7 @@ class AuthController extends Controller
 
             if(!$token) {
                 $array['error'] = 'CPF e/ou senha incorretos.';
-            } else {
-                $array['token'] = $token;
+                return $array;
             }
 
             $array['token'] = $token;
