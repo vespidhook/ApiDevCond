@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ReservationController extends Controller
 {
     public function getReservations() {
-        $array = ['error' => ''];
+        $array = ['error' => '', 'list' => []];
         $daysHelper = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
 
         $areas = Area::where('allowed', 1)->get();
@@ -59,8 +59,11 @@ class ReservationController extends Controller
             }
 
             $array['list'][] = [
-                'id' => $area['id']
-            ]
+                'id' => $area['id'],
+                'cover' => asset('storage/'.$area['cover']),
+                'title' => $area['title'],
+                'dates' => $dates
+            ];
         }
 
         return $array;
